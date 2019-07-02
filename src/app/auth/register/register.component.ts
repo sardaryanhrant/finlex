@@ -58,16 +58,19 @@ export class RegisterComponent implements OnInit {
   }
 
   checkEmail(email) {
-    this.authService.confirmEmail(email).subscribe(res => {
-      console.log(res);
-      if (res) {
-        this.registerForm
-          .get('firstFormGroup.emailAddress')
-          .setErrors({incorrect: true});
-        this.emailExist = true;
-        console.log(email);
-      }
-    });
+    if (this.registerForm.get('firstFormGroup.emailAddress').valid) {
+      this.authService.confirmEmail(email).subscribe(res => {
+        console.log(res);
+        if (res) {
+          this.registerForm
+            .get('firstFormGroup.emailAddress')
+            .setErrors({incorrect: true});
+          this.emailExist = true;
+          console.log(email);
+        }
+      });
+    }
+
   }
 
   registerUser() {

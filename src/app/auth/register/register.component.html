@@ -19,7 +19,7 @@
               <mat-form-field class="example-full-width">
                 <input
                     #emailAdd
-                    (blur)="checkEmail(emailAdd.value)"
+                    (change)="checkEmail(emailAdd.value)"
                     matInput
                     formControlName="emailAddress"
                     placeholder="Email Address*"
