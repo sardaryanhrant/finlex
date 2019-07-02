@@ -1,0 +1,143 @@
+<div class="register" fxLayoutAlign="center center" fxLayout="column">
+  <div class="register-signup">
+    <div class="register-title text-center">
+      <img src="/assets/logo.png" alt="">
+      <p>Free, Unlimited, Easy to use</p>
+      <span>Thank you for choosing Finlex. You're just a few steps away.</span
+      >
+    </div>
+    <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+      <mat-horizontal-stepper labelPosition="center" linear #stepper>
+        <mat-step
+            [stepControl]="registerForm.controls['firstFormGroup']"
+            fxLayout="column"
+        >
+          <div class="set-up register-form">
+            <h2 class="text-center">Sign Up</h2>
+            <div formGroupName="firstFormGroup">
+              <ng-template matStepLabel>Sign Up</ng-template>
+              <mat-form-field class="example-full-width">
+                <input
+                    #emailAdd
+                    (blur)="checkEmail(emailAdd.value)"
+                    matInput
+                    formControlName="emailAddress"
+                    placeholder="Email Address*"
+                />
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input
+                    matInput
+                    minlength="6"
+                    type="password"
+                    formControlName="pass"
+                    placeholder="Password*"
+                />
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input
+                    matInput
+                    type="password"
+                    minlength="6"
+                    formControlName="passConfirm"
+                    placeholder="Password(confirm)*"
+                />
+              </mat-form-field>
+              <div class="term-use">
+                <p class="text-center">
+                  By proceeding you agree to the
+                  <a>Terms of Use</a> and
+                  <a>Privacy Policy</a>
+                </p>
+              </div>
+              <div>
+                <p class="error" *ngIf="emailExist">Email is Registered</p>
+                <button
+                    class="next"
+                    [disabled]="!registerForm.controls['firstFormGroup'].valid"
+                    mat-button
+                    matStepperNext
+                    *ngIf="!emailExist"
+                    type="button"
+                >
+                  Next >>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="already-member text-center">
+            <p><i>Already a member?</i></p>
+            <button routerLink="/auth/login">Login</button>
+          </div>
+        </mat-step>
+        <mat-step
+            [stepControl]="registerForm.controls['secondFormGroup']"
+        >
+          <div class="register-form">
+            <h2 class="text-center">Tell us about you</h2>
+            <div formGroupName="secondFormGroup">
+              <ng-template matStepLabel>User</ng-template>
+              <div>
+                <div class="register-left">
+                  <div class="register-private">
+                    <mat-form-field class="register-form-field">
+                      <label>First Name*</label>
+                      <input matInput formControlName="firstName" required/>
+                    </mat-form-field>
+                    <mat-form-field>
+                      <label>Last Name*</label>
+                      <input matInput formControlName="lastName" required/>
+                    </mat-form-field>
+                  </div>
+                  <mat-form-field class="example-full-width">
+                    <label>Address*</label>
+                    <input matInput formControlName="address" required/>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <button mat-button class="back" matStepperPrevious>Back</button>
+                  <button
+                      class="next"
+                      [disabled]="!registerForm.controls['secondFormGroup'].valid"
+                      mat-button
+                      matStepperNext
+                      type="button"
+                  >
+                    Next >>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-step>
+        <mat-step class="" [stepControl]="registerForm.controls['lastFormGroup']">
+          <div class="set-up register-form">
+            <h2 class="text-center">User Details</h2>
+            <div formGroupName="lastFormGroup">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput formControlName="age" placeholder="Age"/>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dob"/>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <ng-template matStepLabel>Details</ng-template>
+              <div>
+                <button class="back" mat-button matStepperPrevious>Back</button>
+                <button
+                    mat-button
+                    class="next"
+                    [disabled]="!registerForm.controls['lastFormGroup'].valid"
+                    type="submit"
+                >
+                  Start Using Finlex
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </form>
+  </div>
+</div>

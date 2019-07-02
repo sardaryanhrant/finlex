@@ -1,0 +1,42 @@
+<div class="login-page-wrapper">
+  <div class="login-title">
+    <img src="./assets/logo.png" alt="">
+  </div>
+  <div>
+    <div class="login-form-wrapper">
+      <h2>Login to your account</h2>
+      <form
+          [formGroup]="loginForm"
+          (ngSubmit)="login(loginForm)"
+      >
+        <mat-form-field>
+          <input
+              matInput
+              type="text"
+              placeholder="User Email"
+              formControlName="username"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+              matInput
+              placeholder="Password"
+              type="password"
+              formControlName="password"
+          />
+        </mat-form-field>
+        <div class="login-button">
+          <button mat-button class="button ">Log in</button>
+          <!--<span *ngIf="errorStatus">{{ error }}</span>-->
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="member-title">
+    <h4>Not a member yet?</h4>
+    <div class="login-button">
+      <a routerLink="/auth/register">Start using Finlex now</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="sidebar-wrapper">
+  <ul>
+    <li class="logo"><a href=""><img src="./assets/logo.png" alt=""></a></li>
+    <li><a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">
+      <mat-icon>person</mat-icon>
+    </a></li>
+    <li><a routerLink="/dashboard/messages" routerLinkActive="active">
+      <mat-icon>email</mat-icon>
+    </a></li>
+    <li><a routerLink="/dashboard/settings" routerLinkActive="active">
+      <mat-icon>settings</mat-icon>
+    </a></li>
+
+  </ul>
+  <div class="user" [matTooltip]="currentUser.firstName+' '+currentUser.lastName">
+    <img [src]="'https://ui-avatars.com/api/?name='+currentUser.firstName+'+'+currentUser.lastName" alt="">
+
+  </div>
+</div>

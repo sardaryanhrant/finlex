@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  font-family:  "Open Sans", "Gill Sans MT", "Gill Sans", Corbel, Arial, sans-serif;
+  color: #666;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.simplebar-scrollbar:before {
+  background: #079992;
+}
+
+.capitalise {
+  text-transform: capitalize;
+}
+
+.page-wrapper {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+}
+
+
+.mat-tab-label {
+  color: #079992;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar {
+  background-color: #079992;
+}

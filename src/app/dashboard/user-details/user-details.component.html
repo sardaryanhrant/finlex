@@ -1,0 +1,31 @@
+<div class="user-details" *ngIf="activeUser">
+  <div>
+    <img [src]="activeUser.picture.large" alt="">
+    <h3>{{activeUser.name.first + ' ' + activeUser.name.last }}</h3>
+    <p>Phone: {{activeUser.phone}}</p>
+    <p>Email: {{activeUser.email}}</p>
+    <p class="capitalise">Address: {{activeUser.location.city}}, {{activeUser.location.street}}</p>
+    <p>Date of Birth: {{activeUser.dob.date | amDateFormat: 'DD MMM YYYY'}}</p>
+  </div>
+
+  <br>
+  <div>
+    <mat-tab-group>
+      <mat-tab label="Products">
+        <div class="tab-content">
+          <h4>Health Insurance Data</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, illum possimus! Accusantium beatae, cum
+            deserunt earum fuga harum itaque labore laboriosam libero modi, molestias officia optio qui quod velit
+            voluptates!</p>
+          <h4>Health Insurance Data</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, illum possimus! Accusantium beatae, cum
+            deserunt earum fuga harum itaque labore laboriosam libero modi, molestias officia optio qui quod velit
+            voluptates!</p>
+        </div>
+      </mat-tab>
+      <mat-tab label="Other Insurance"> Content 2</mat-tab>
+      <mat-tab label="Contracts"> Content 3</mat-tab>
+    </mat-tab-group>
+  </div>
+
+</div>

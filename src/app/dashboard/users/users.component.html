@@ -1,0 +1,27 @@
+<div class="dashboard-wrapper">
+  <app-sidebar></app-sidebar>
+  <div class="content-wrapper">
+    <h2>Users</h2>
+    <div class="content">
+      <div class="users" id="users" data-simplebar>
+        <ul class="user-list" *ngIf="users.length > 0">
+          <li [ngClass]="{'active': i== activeLi}" class="user-item" *ngFor="let user of users; let i = index"
+              (click)="selectUser(i)">
+            <div class="user">
+              <img [src]="user.picture.thumbnail" alt="">
+              <div>
+                <h4>{{user.name.first + ' ' + user.name.last }}</h4>
+                <span>{{user.email}}</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <app-loading-users *ngIf="loading"></app-loading-users>
+        <div class="api-error" *ngIf="userAPIError">
+          There was an error to connect to the server, Please try in few minutes.
+        </div>
+      </div>
+      <app-user-details *ngIf="activeUser" [activeUser]="activeUser"></app-user-details>
+    </div>
+  </div>
+</div>

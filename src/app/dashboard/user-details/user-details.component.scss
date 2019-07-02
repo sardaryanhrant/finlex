@@ -1,0 +1,23 @@
+.user-details {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  align-self:stretch;
+  min-height: 100%;
+  h3 {
+    text-transform: capitalize;
+    color: #079992;
+    font-size: 28px;
+  }
+  img {
+    float: left;
+    margin-right: 12px;
+  }
+  h4 {
+    margin: 12px 0;
+    color: #079992;
+  }
+.tab-content {
+  padding-top: 16px;
+}
+}
